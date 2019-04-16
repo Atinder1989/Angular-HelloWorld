@@ -8,8 +8,8 @@ export class AuthorsService {
   getAuthors() {
     // return ["Author1","Author2","Author2"]
     return [
-      {Name: 'Mirza', Id: 1},
-      {Name: 'Mirza123', Id: 1}
+      { Name: 'Mirza', Id: 1 },
+      { Name: 'Mirza123', Id: 1 }
 
     ]
   }
