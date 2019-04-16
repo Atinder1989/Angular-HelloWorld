@@ -15,15 +15,26 @@ import { Component } from '@angular/core'
     //     </ul>
     // `
 
+    // template: `
+    //     <h2>{{ title }}</h2>
+    //     <img src="{{ imageurl }}"/>
+    //     <img [src]="title">
+    // `
+
+
     template: `
-        <h2>{{ title }}</h2>
-        <img src="{{ imageurl }}"/>
-        <img [src]="title">
+        <img [src] = "imageurl">
+        <table>
+            <tr>
+                <td [attr.colspan] = "colspan"> </td>
+            </tr>
+        </table>
     `
 })
 
 export class CoursesComponent {
     title = "List Of Courses";
+    colspan = 2
     imageurl = "https://raisingchildren.net.au/__data/assets/image/0023/49244/sleep-routines-for-newborns.jpg"
     courses;
 
