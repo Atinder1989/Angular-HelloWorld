@@ -6,6 +6,7 @@ import { Component } from '@angular/core'
    // template: '<h2>{{ "Title: " + title }}</h2>'
     // template: '<h2>{{ getTitle() }}</h2>'
 
+    // Directive 
     // template: `
     //     <h2>{{ getTitle() }}</h2>
     //     <ul>
@@ -15,6 +16,8 @@ import { Component } from '@angular/core'
     //     </ul>
     // `
 
+
+    // property Binding 
     // template: `
     //     <h2>{{ title }}</h2>
     //     <img src="{{ imageurl }}"/>
@@ -22,13 +25,18 @@ import { Component } from '@angular/core'
     // `
 
 
-    template: `
-        <img [src] = "imageurl">
-        <table>
-            <tr>
-                <td [attr.colspan] = "colspan"> </td>
-            </tr>
-        </table>
+    // Attribute Binding 
+    // template: `
+    //     <img [src] = "imageurl">
+    //     <table>
+    //         <tr>
+    //             <td [attr.colspan] = "colspan"> </td>
+    //         </tr>
+    //     </table>
+    // `
+
+    template:`
+        <button class="btn btn-primary">Save</button>
     `
 })
 
