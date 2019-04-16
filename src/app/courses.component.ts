@@ -25,7 +25,7 @@ import { Component } from '@angular/core'
     // `
 
 
-    // Attribute Binding 
+   // Attribute Binding 
     // template: `
     //     <img [src] = "imageurl">
     //     <table>
@@ -36,11 +36,13 @@ import { Component } from '@angular/core'
     // `
 
     template:`
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" [class.active]="isActive">Save</button>
+        <button [style.backgroundColor]="isActive ? 'green' : 'red' ">Save</button>
     `
 })
 
 export class CoursesComponent {
+    isActive = true
     title = "List Of Courses";
     colspan = 2
     imageurl = "https://raisingchildren.net.au/__data/assets/image/0023/49244/sleep-routines-for-newborns.jpg"
