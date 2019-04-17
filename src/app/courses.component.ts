@@ -52,13 +52,30 @@ import { Component } from '@angular/core'
     // `
 
     //Two Way Binding
+    // template:`
+    //     <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
+    //     <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+    //     `
+
+    // Pipes
     template:`
-        <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
-        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
-        `
+        {{ pipeCourse.title | uppercase | lowercase }} <br/>
+        {{ pipeCourse.rating | number: '1.2-2' }} <br/>
+        {{ pipeCourse.students | number }} <br/>
+        {{ pipeCourse.price | currency:"AUD":true:'1.2-2'}} <br/>
+        {{ pipeCourse.releaseDate | date:'shortDate'}}    
+    `
 })
 
 export class CoursesComponent {
+    pipeCourse = {
+        title: "Hello World",
+        rating: 4.9745,
+        students:30123,
+        price:190.95,
+        releaseDate: new Date(2016,3,1)
+
+    }
     email = "a@a.com"
     isActive = true
     title = "List Of Courses"
