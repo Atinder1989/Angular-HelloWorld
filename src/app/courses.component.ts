@@ -16,14 +16,12 @@ import { Component } from '@angular/core'
     //     </ul>
     // `
 
-
-    // property Binding 
+    // Property Binding 
     // template: `
     //     <h2>{{ title }}</h2>
     //     <img src="{{ imageurl }}"/>
     //     <img [src]="title">
     // `
-
 
    // Attribute Binding 
     // template: `
@@ -35,9 +33,17 @@ import { Component } from '@angular/core'
     //     </table>
     // `
 
-    template:`
-        <button class="btn btn-primary" [class.active]="isActive">Save</button>
-        <button [style.backgroundColor]="isActive ? 'green' : 'red' ">Save</button>
+    // // Bootstrap, Class Binding, Style Binding 
+    // template:`
+    //     <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    //     <button [style.backgroundColor]="isActive ? 'green' : 'red' ">Save</button>
+    // `
+
+    //Event Binding
+    template: `
+        <div (click)="OnDivClicked()">
+            <button (click)="onSave($event)">Save</button>
+        </div>
     `
 })
 
@@ -54,5 +60,14 @@ export class CoursesComponent {
 
     getTitle() {
         return this.title
+    }
+    onSave($event) {
+        event.stopPropagation()
+        console.log("Save Button Clicked",$event);
+        
+    }
+    OnDivClicked() {
+        console.log("Div Clicked");
+        
     }
 }
