@@ -47,17 +47,25 @@ import { Component } from '@angular/core'
     // `
 
     // Event Filtering, Template Variable
+    // template:`
+    //     <input #email (keyup.enter)="onKeyUp(email.value)"/>
+    // `
+
+    //Two Way Binding
     template:`
-        <input #email (keyup.enter)="onKeyUp(email.value)"/>
-    `
+        <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"/>
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+        `
 })
 
 export class CoursesComponent {
+    email = "a@a.com"
     isActive = true
-    title = "List Of Courses";
+    title = "List Of Courses"
     colspan = 2
     imageurl = "https://raisingchildren.net.au/__data/assets/image/0023/49244/sleep-routines-for-newborns.jpg"
-    courses;
+    courses
+    
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses()
@@ -76,8 +84,8 @@ export class CoursesComponent {
         
     }
 
-    onKeyUp(email){
-        console.log("Enter Pressed and value is == " + email);
+    onKeyUp(){
+        console.log("Enter Pressed and value is == " + this.email);
 
     }
 }
