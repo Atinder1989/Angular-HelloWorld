@@ -39,11 +39,16 @@ import { Component } from '@angular/core'
     //     <button [style.backgroundColor]="isActive ? 'green' : 'red' ">Save</button>
     // `
 
-    //Event Binding
-    template: `
-        <div (click)="OnDivClicked()">
-            <button (click)="onSave($event)">Save</button>
-        </div>
+    // //Event Binding
+    // template: `
+    //     <div (click)="OnDivClicked()">
+    //         <button (click)="onSave($event)">Save</button>
+    //     </div>
+    // `
+
+    // Event Filtering, Template Variable
+    template:`
+        <input #email (keyup.enter)="onKeyUp(email.value)"/>
     `
 })
 
@@ -69,5 +74,10 @@ export class CoursesComponent {
     OnDivClicked() {
         console.log("Div Clicked");
         
+    }
+
+    onKeyUp(email){
+        console.log("Enter Pressed and value is == " + email);
+
     }
 }
