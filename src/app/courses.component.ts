@@ -1,5 +1,6 @@
 import { CoursesService } from './courses.service';
 import { Component } from '@angular/core'
+import { template } from '@angular/core/src/render3';
 
 @Component({
     selector: 'courses',
@@ -38,6 +39,7 @@ import { Component } from '@angular/core'
     //     <button class="btn btn-primary" [class.active]="isActive">Save</button>
     //     <button [style.backgroundColor]="isActive ? 'green' : 'red' ">Save</button>
     // `
+ 
 
     // //Event Binding
     // template: `
@@ -66,13 +68,15 @@ import { Component } from '@angular/core'
     //     {{ pipeCourse.releaseDate | date:'shortDate'}}    
     // `
 
-    // Custom Pipes
+   // Custom Pipes
     template:`
         {{ text | summary:50}}
     `
+
 })
 
 export class CoursesComponent {
+    isFavorite = false
     text = "A simple solution is to find all prime factors of both numbers, then find intersection of all factors present in both numbers. Finally return product of elements in the intersection.An efficient solution is to use Euclidean algorithm which is the main algorithm used for this purpose. The idea is, GCD of two numbers doesn’t change if smaller number is subtracted from a bigger number."
     pipeCourse = {
         title: "Hello World",
@@ -92,6 +96,11 @@ export class CoursesComponent {
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses()
+    }
+
+    onClick() {
+        console.log("Star Clicked hua")
+        this.isFavorite = !this.isFavorite
     }
 
     getTitle() {
