@@ -1,0 +1,8 @@
+
+<div>
+<!-- <i class="fa fa-asterisk" *ngIf = "isFavourite" aria-hidden="true" (click)="onClick()" ></i>
+<i class="fa fa-bell" *ngIf = "!isFavourite" aria-hidden="true" (click)="onClick()" ></i> -->
+<i class="fa" [ngClass]="{'fa-asterisk':isFavourite,'fa-bell':!isFavourite}"  aria-hidden="true" (click)="onClick()" ></i>
+</div>
+
+ 
